@@ -1,0 +1,14 @@
+  - hosts: worker
+    tasks:
+      - name: Clone Repo
+        become: yes 
+        shell: git clone https://github.com/udinIMM/Hackathon.git && mv Hackathon /var/www/html && mkdir /var/www/html/Hackathon/vendor
+      - name: Copy Folder
+        become: yes
+        copy: src=vendor/ dest=/var/www/html/Hackathon/vendor
+      - name: Copy File
+        become: yes
+        copy: src=.env dest=/var/www/html/Hackathon
+      - name: Composer Update
+        become: yes
+        shell: cd /var/www/html/Hackathon && php artisan key:generate && chmod -R 777 storage && php artisan migrate:refresh && composer update

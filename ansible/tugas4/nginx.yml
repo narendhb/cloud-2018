@@ -1,0 +1,11 @@
+  - hosts: worker
+    tasks:
+      - name: Start Nginx
+        become: yes 
+        shell: service apache2 stop & service nginx restart && mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+      - name: Copy Setting Load Balancer
+        become: yes
+        copy: src=default dest=/etc/nginx/sites-available/
+      - name: Restart Nginx
+        become: yes
+        shell: service nginx restart

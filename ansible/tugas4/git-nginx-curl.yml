@@ -1,0 +1,9 @@
+  - hosts: worker
+    tasks:
+      - name: Install git-nginx-curl
+        become: yes #untuk menjadi superuser
+        apt: name={{ item }} state=latest update_cache=true
+        with_items:
+          - nginx
+          - git
+          - curl

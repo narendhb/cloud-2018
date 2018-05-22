@@ -1,0 +1,9 @@
+[worker]
+worker1 ansible_host=192.168.2.196 ansible_ssh_user=cloud ansible_become_pass=raincloud123!
+worker2 ansible_host=192.168.2.181 ansible_ssh_user=cloud ansible_become_pass=raincloud123!
+#worker1 ansible_host=10.151.252.143 ansible_ssh_user=cloud ansible_become_pass=raincloud123!
+#worker2 ansible_host=10.151.252.129 ansible_ssh_user=cloud ansible_become_pass=raincloud123!
+
+[database]
+#database1 ansible_host=10.151.252.240 ansible_ssh_user=regal ansible_become_pass=bolaubi
+database1 ansible_host=192.168.2.169 ansible_ssh_user=regal ansible_become_pass=bolaubi
